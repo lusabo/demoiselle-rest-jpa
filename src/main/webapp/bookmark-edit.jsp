@@ -19,9 +19,9 @@ function fillForm(data){
 
 $(function(){
 	var id = <%= request.getParameter("id") %>;
-	var persistenceService = new PersistenceService("api");
+	var persistenceService = new PersistenceService("service");
 
-	persistenceService.get("bookmark", id, fillForm); 
+	persistenceService.get("bookmarks", id, fillForm); 
 
 	$("#salvar").click(function(){
 		
@@ -31,9 +31,9 @@ $(function(){
 		bookmark.link = $("#link").val();
 
 		$.when(
-				persistenceService.update("bookmark", bookmark) 
+				persistenceService.update("bookmarks", bookmark) 
 		).done(function(){
-			location.href = "bookmark-list";
+			location.href = "bookmark-list.jsp";
 		});
 		
 	});	

@@ -19,9 +19,9 @@ $(function(){
 		bookmark.link = $("#link").val();
 
 		$.when(
-				persistenceService.create("bookmark", bookmark) 
+				persistenceService.create("bookmarks", bookmark) 
 		).done(function(){
-			location.href = "bookmark-list";
+			location.href = "bookmark-list.jsp";
 		});
 		
 	});	

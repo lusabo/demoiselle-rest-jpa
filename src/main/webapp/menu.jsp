@@ -1,4 +1,4 @@
-	<a href="home"><img src="img/logo.png" /></a>
+	<a href="index.jsp"><img src="img/logo.png" /></a>
 
 	<div class="navbar">
 		<div class="navbar-inner">

@@ -31,7 +31,7 @@
 	<jsp:include page="menu.jsp" />
 
 	<div id="welcome">
-		Bem-vindo à aplicação de exemplo Bookmark sem JSF e JPA. Este é o seu ponto de partida, portanto sinta-se à vontade para modificar esta aplicação.
+		Bem-vindo à aplicação de exemplo Bookmark REST e JPA. Este é o seu ponto de partida, portanto sinta-se à vontade para modificar esta aplicação.
 	</div>
 
 </body>

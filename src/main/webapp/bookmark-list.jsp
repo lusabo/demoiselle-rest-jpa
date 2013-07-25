@@ -15,7 +15,7 @@
 <script src="js/lib/persistence-service.js" type="text/javascript" ></script>
 
 <script>
-	var persistenceService = new PersistenceService("api");
+	var persistenceService = new PersistenceService("service");
 
 	function drawTable(data){
 		var oTable = $('#table-bookmarks').dataTable({
@@ -36,7 +36,7 @@
 											"mData" : "id", 
 											"bSortable" : false,
 											"mRender" : function ( data ) {
-													return '<a href="bookmark-edit/' + data + '" title="Editar registro!" ><i class="icon-edit"></i></a>';
+													return '<a href="bookmark-edit.jsp?id=' + data + '" title="Editar registro!" ><i class="icon-edit"></i></a>';
 											}
  										}, 										
     	              { "aTargets" : [2], "mData" : "id", "sTitle" : "Id" },
@@ -58,7 +58,7 @@
 		});
 		
 		$("div.toolbar").replaceWith('<div id="toolbar" class="well well-small btn-toolbar"><button id="new"><i class="icon-file"></i></button>');
-		$("#new").on("click", function(e){ _new('bookmark-new'); });
+		$("#new").on("click", function(e){ _new('bookmark-new.jsp'); });
 	 	oTable.fnClearTable();
 		oTable.fnAddData(data);
 	}
@@ -73,9 +73,9 @@
 						{ text: "Sim, claro!", 
 							click: 	function() {
 								$.when(
-										persistenceService.remove("bookmark", _id) 
+										persistenceService.remove("bookmarks", _id) 
 								).done(function(){
-										persistenceService.all("bookmark", drawTable);	
+										persistenceService.all("bookmarks", drawTable);	
 								});
 								$( this ).dialog( "close" ); 
 							} 
@@ -96,7 +96,7 @@
 	$(function(){
 		$( "#dialog-delete" ).dialog({autoOpen: false});
 		
-		persistenceService.all("bookmark", drawTable);
+		persistenceService.all("bookmarks", drawTable);
 
 		$("#table-bookmarks").delegate("a.remove", "click", function () {
 			_remove(this.id);
